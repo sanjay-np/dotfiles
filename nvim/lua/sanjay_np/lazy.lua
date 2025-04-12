@@ -12,12 +12,9 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	-- add LazyVim and import its plugins
-	{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
-	-- import/override with your plugins
-	{ import = "plugins" },
+	{ import = "sanjay_np.plugins" },
+	{ import = "sanjay_np.plugins.lsp" },
 }, {
-	colorscheme = "catppuccin-mocha",
 	checker = {
 		enabled = true,
 		notify = false,

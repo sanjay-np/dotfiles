@@ -1,4 +1,4 @@
-format = '''💀 $username$hostname$directory $git_branch-$time$character'''
+format = '''$time- $username$hostname$directory $git_branch$character'''
 
 scan_timeout = 10
 add_newline = false
