@@ -8,6 +8,7 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 config.adjust_window_size_when_changing_font_size = false
+config.max_fps = 120
 
 -- Color scheme
 config.color_scheme = "Catppuccin Mocha"
@@ -22,7 +23,7 @@ config.font = wezterm.font({
 	weight = "Bold",
 	stretch = "Normal",
 })
-config.font_size = 15.0
+config.font_size = 16.0
 config.line_height = 1.2
 
 config.term = "xterm-256color"
@@ -36,7 +37,7 @@ config.window_padding = {
 	top = 5,
 	bottom = 5,
 }
-config.window_background_opacity = 1
+config.window_background_opacity = 0.85
 config.macos_window_background_blur = 30
 
 -- Keybindings --
@@ -127,8 +128,8 @@ config.keys = {
 		action = action.TogglePaneZoomState,
 	},
 	{
-		key = "q",
-		mods = "CTRL",
+		key = "f",
+		mods = "LEADER",
 		action = action.ToggleFullScreen,
 	},
 }
@@ -183,6 +184,7 @@ wezterm.on("update-right-status", function(window, _)
 		{ Text = SOLID_LEFT_ARROW },
 	}))
 end)
+
 
 -- and finally, return the configuration to wezterm
 return config
