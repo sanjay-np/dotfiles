@@ -1,0 +1,27 @@
+font-family = "GeistMono Nerd Font"
+font-style = Regular
+font-size = 16
+font-thicken = true
+
+adjust-underline-position = 40%
+adjust-underline-thickness = -60%
+
+cursor-style = block
+cursor-style-blink = true
+
+shell-integration-features = no-cursor
+
+window-padding-x = 6
+window-padding-y = 6
+
+confirm-close-surface = false
+clipboard-paste-protection = false
+unfocused-split-opacity = 1.0
+
+theme = 0x96f
+
+background-opacity = 0.9
+background-blur = 10
+
+macos-titlebar-proxy-icon = hidden
+title = " "
