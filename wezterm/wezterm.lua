@@ -37,8 +37,8 @@ config.window_padding = {
 	top = 5,
 	bottom = 5,
 }
-config.window_background_opacity = 0.85
-config.macos_window_background_blur = 30
+config.window_background_opacity = 0.90
+config.macos_window_background_blur = 50
 
 -- Keybindings --
 -- Leader key
