@@ -44,7 +44,7 @@ format = 'on [🌐$hostname ](bold green)'
 disabled = false
 time_format = "%R"
 utc_time_offset = "local"
-format = '[ $time ](bold blue)'
+format = '[$time ](bold blue)'
 style = 'bg:#303030'
 
 

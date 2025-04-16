@@ -165,7 +165,7 @@ config.tab_and_split_indices_are_zero_based = true
 -- tmux status
 wezterm.on("update-right-status", function(window, _)
 	local SOLID_LEFT_ARROW = ""
-	local ARROW_FOREGROUND = { Foreground = { Color = "#000000" } }
+	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
 	local prefix = ""
 
 	if window:leader_is_active() then
@@ -184,7 +184,6 @@ wezterm.on("update-right-status", function(window, _)
 		{ Text = SOLID_LEFT_ARROW },
 	}))
 end)
-
 
 -- and finally, return the configuration to wezterm
 return config

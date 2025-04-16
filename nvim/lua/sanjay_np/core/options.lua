@@ -1,25 +1,34 @@
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.cmd("let g:netrw_liststyle = 3")
 
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+local opt = vim.opt
 
-vim.opt.wrap = false
+opt.number = true
+opt.relativenumber = true
 
-vim.opt.expandtab = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+--tabs & indentation
+opt.tabstop = 4
+opt.shiftwidth = 4
+opt.expandtab = true
+opt.autoindent = true
 
-vim.opt.clipboard = "unnamedplus"
+opt.wrap = false
 
-vim.opt.scrolloff = 999
+--search settings
+opt.ignorecase = true
+opt.smartcase = true
 
-vim.opt.virtualedit = "block"
+opt.cursorline = true
 
-vim.opt.inccommand = "split"
+opt.termguicolors = true
+opt.background = "dark"
+opt.signcolumn = "yes"
 
-vim.opt.ignorecase = true
+--backspace
+opt.backspace = "indent,eol,start"
 
-vim.opt.termguicolors = true
+--clipboard
+opt.clipboard = "unnamedplus"
 
-vim.g.mapleader = " "
+--split windows
+opt.splitbelow = true
+opt.splitright = true

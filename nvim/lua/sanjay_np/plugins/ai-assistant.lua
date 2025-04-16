@@ -8,7 +8,7 @@ return {
 					suggestion_color = "#ffffff",
 					cterm = 244,
 				},
-                log_level = "off",
+				log_level = "off",
 			})
 		end,
 	},
