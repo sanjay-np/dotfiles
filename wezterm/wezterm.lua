@@ -37,8 +37,25 @@ config.window_padding = {
 	top = 5,
 	bottom = 5,
 }
-config.window_background_opacity = 0.90
+config.window_background_opacity = 0.98
 config.macos_window_background_blur = 50
+
+-- local dimmer = { brightness = 0.01 }
+-- config.background = {
+--     {
+--         source = {
+--             File = "/Users/brightdev/.config/wezterm/backgrounds/anime.jpeg",
+--         },
+--         hsb = dimmer,
+--     },
+--     {
+--         source = {
+--             Color = "rgba(17, 17, 27, 0.90)",
+--         },
+--         height = "100%",
+--         width = "100%",
+--     },
+-- }
 
 -- Keybindings --
 -- Leader key
