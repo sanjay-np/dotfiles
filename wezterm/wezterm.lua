@@ -11,7 +11,7 @@ config.adjust_window_size_when_changing_font_size = false
 config.max_fps = 120
 
 -- Color scheme
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "Sonokai (Gogh)"
 
 -- 0x96f theme Color scheme
 -- local theme = require("colorscheme.0x96f")
@@ -37,25 +37,8 @@ config.window_padding = {
 	top = 5,
 	bottom = 5,
 }
-config.window_background_opacity = 0.98
+config.window_background_opacity = 0.75
 config.macos_window_background_blur = 50
-
--- local dimmer = { brightness = 0.01 }
--- config.background = {
---     {
---         source = {
---             File = "/Users/brightdev/.config/wezterm/backgrounds/anime.jpeg",
---         },
---         hsb = dimmer,
---     },
---     {
---         source = {
---             Color = "rgba(17, 17, 27, 0.90)",
---         },
---         height = "100%",
---         width = "100%",
---     },
--- }
 
 -- Keybindings --
 -- Leader key

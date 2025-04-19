@@ -7,6 +7,6 @@ return {
 	config = true,
 	opts = {
 		size = 80,
-		direction = "vertical", -- 'vertical' | 'horizontal' | 'tab' | 'float'
+		direction = "float", -- 'vertical' | 'horizontal' | 'tab' | 'float'
 	},
 }
