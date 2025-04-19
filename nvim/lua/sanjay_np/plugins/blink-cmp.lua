@@ -25,8 +25,13 @@ return {
 				enabled = true,
 			},
 			sources = {
-				default = { "lsp", "luasnip", "buffer", "path", "snippets" },
+				-- Remove 'buffer' if you don't want text completions, by default it's only enabled when LSP returns no items
+				default = { "lsp", "path", "snippets", "buffer" },
 			},
+
+			-- Use a preset for snippets, check the snippets documentation for more information
+			snippets = { preset = "luasnip" },
+
 			fuzzy = {
 				implementation = "prefer_rust_with_warning",
 			},
