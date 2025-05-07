@@ -1,7 +1,11 @@
+shell-integration = zsh
+
 font-family = "GeistMono Nerd Font"
 font-style = Regular
 font-size = 16
 font-thicken = true
+
+mouse-hide-while-typing = true
 
 adjust-underline-position = 40%
 adjust-underline-thickness = -60%

@@ -1,4 +1,4 @@
-format = '''💀 $username$hostname$directory $git_branch-$time$character'''
+format = '''$time- $username$hostname$directory $git_branch$character'''
 
 scan_timeout = 10
 add_newline = false
@@ -44,7 +44,7 @@ format = 'on [🌐$hostname ](bold green)'
 disabled = false
 time_format = "%R"
 utc_time_offset = "local"
-format = '[ $time ](bold blue)'
+format = '[$time ](bold blue)'
 style = 'bg:#303030'
 
 

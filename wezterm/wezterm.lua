@@ -8,9 +8,10 @@ local config = wezterm.config_builder()
 -- This is where you actually apply your config choices
 
 config.adjust_window_size_when_changing_font_size = false
+config.max_fps = 120
 
 -- Color scheme
-config.color_scheme = "Catppuccin Mocha"
+config.color_scheme = "Tokyo Night (Gogh)"
 
 -- 0x96f theme Color scheme
 -- local theme = require("colorscheme.0x96f")
@@ -22,7 +23,7 @@ config.font = wezterm.font({
 	weight = "Bold",
 	stretch = "Normal",
 })
-config.font_size = 15.0
+config.font_size = 15.5
 config.line_height = 1.2
 
 config.term = "xterm-256color"
@@ -31,104 +32,23 @@ config.term = "xterm-256color"
 
 config.window_decorations = "RESIZE"
 config.window_padding = {
-	left = 5,
-	right = 5,
-	top = 5,
-	bottom = 5,
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
 }
-config.window_background_opacity = 1
+config.window_background_opacity = 0.95
 config.macos_window_background_blur = 30
 
 -- Keybindings --
 -- Leader key
-config.leader = { key = "q", mods = "ALT", timeout_milliseconds = 2000 }
+config.leader = { key = "w", mods = "ALT", timeout_milliseconds = 2000 }
 
 --- Keybindings
 config.keys = {
 	{
+		key = "f",
 		mods = "LEADER",
-		key = "c",
-		action = action.SpawnTab("CurrentPaneDomain"),
-	},
-	{
-		mods = "LEADER",
-		key = "x",
-		action = action.CloseCurrentPane({ confirm = true }),
-	},
-	{
-		mods = "LEADER",
-		key = "b",
-		action = action.ActivateTabRelative(-1),
-	},
-	{
-		mods = "LEADER",
-		key = "|",
-		action = action.SplitHorizontal({ domain = "CurrentPaneDomain" }),
-	},
-	{
-		mods = "LEADER",
-		key = "-",
-		action = action.SplitVertical({ domain = "CurrentPaneDomain" }),
-	},
-	{
-		mods = "LEADER",
-		key = "h",
-		action = action.ActivatePaneDirection("Left"),
-	},
-	{
-		mods = "LEADER",
-		key = "j",
-		action = action.ActivatePaneDirection("Down"),
-	},
-	{
-		mods = "LEADER",
-		key = "k",
-		action = action.ActivatePaneDirection("Up"),
-	},
-	{
-		mods = "LEADER",
-		key = "l",
-		action = action.ActivatePaneDirection("Right"),
-	},
-	{
-		mods = "LEADER",
-		key = "LeftArrow",
-		action = action.AdjustPaneSize({ "Left", 5 }),
-	},
-	{
-		mods = "LEADER",
-		key = "RightArrow",
-		action = action.AdjustPaneSize({ "Right", 5 }),
-	},
-	{
-		mods = "LEADER",
-		key = "DownArrow",
-		action = action.AdjustPaneSize({ "Down", 5 }),
-	},
-	{
-		mods = "LEADER",
-		key = "UpArrow",
-		action = action.AdjustPaneSize({ "Up", 5 }),
-	},
-	{
-		key = "LeftArrow",
-		mods = "OPT",
-		action = action.SendKey({ key = "b", mods = "ALT" }),
-	},
-	{
-		key = "RightArrow",
-		mods = "OPT",
-		action = action.SendKey({ key = "f", mods = "ALT" }),
-	},
-	{
-		-- Maximizing one window over the others
-		mods = "LEADER",
-		key = "m",
-		action = action.TogglePaneZoomState,
-	},
-	{
-		key = "q",
-		mods = "CTRL",
 		action = action.ToggleFullScreen,
 	},
 }
@@ -146,25 +66,16 @@ config.mouse_bindings = {
 	},
 }
 
-for i = 0, 9 do
-	-- leader + number to activate that tab
-	table.insert(config.keys, {
-		key = tostring(i),
-		mods = "LEADER",
-		action = wezterm.action.ActivateTab(i),
-	})
-end
-
 -- tab bar
-config.hide_tab_bar_if_only_one_tab = false
-config.tab_bar_at_bottom = true
+config.hide_tab_bar_if_only_one_tab = true
+config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
-config.tab_and_split_indices_are_zero_based = true
-
+config.tab_and_split_indices_are_zero_based = false
+--
 -- tmux status
-wezterm.on("update-right-status", function(window, _)
+wezterm.on("update-right-status", function(window, pane)
 	local SOLID_LEFT_ARROW = ""
-	local ARROW_FOREGROUND = { Foreground = { Color = "#000000" } }
+	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
 	local prefix = ""
 
 	if window:leader_is_active() then
@@ -182,7 +93,14 @@ wezterm.on("update-right-status", function(window, _)
 		ARROW_FOREGROUND,
 		{ Text = SOLID_LEFT_ARROW },
 	}))
-end)
 
+	local date = wezterm.run_child_process({ "date" })
+	date = wezterm.strftime("%Y/%m/%d %I:%M %p ")
+
+	window:set_right_status(wezterm.format({
+		{ Attribute = { Italic = false } },
+		{ Text = " " .. date },
+	}))
+end)
 -- and finally, return the configuration to wezterm
 return config

@@ -1,2 +1,2 @@
--- lazy.nvim, LazyVim and plugins
-require("config.lazy")
+require("sanjay_np.core")
+require("sanjay_np.lazy")
