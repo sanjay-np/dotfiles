@@ -23,8 +23,8 @@ config.font = wezterm.font({
 	weight = "Bold",
 	stretch = "Normal",
 })
-config.font_size = 15.5
-config.line_height = 1.2
+config.font_size = 16.0
+config.line_height = 1.3
 
 config.term = "xterm-256color"
 
@@ -37,8 +37,8 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.window_background_opacity = 0.95
-config.macos_window_background_blur = 30
+config.window_background_opacity = 0.90
+config.macos_window_background_blur = 40
 
 -- Keybindings --
 -- Leader key
