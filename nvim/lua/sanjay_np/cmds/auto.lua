@@ -18,6 +18,11 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+})
+
 -- These are the auto commands that run after
 -- the lspattaches and provide some good shortcuts and keymaps
 -- for making the editing experience great again

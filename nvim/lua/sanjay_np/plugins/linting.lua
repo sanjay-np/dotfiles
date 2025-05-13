@@ -9,8 +9,7 @@ return {
 			typescript = { "eslint_d" },
 			javascriptreact = { "eslint_d" },
 			typescriptreact = { "eslint_d" },
-			svelte = { "eslint_d" },
-			python = { "pylint" },
+			php = { "phpstan" },
 		}
 
 		local lint_augroup = vim.api.nvim_create_augroup("lint", { clear = true })

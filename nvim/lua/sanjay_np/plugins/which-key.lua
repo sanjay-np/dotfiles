@@ -9,6 +9,7 @@ return {
 			{ "<leader>b", group = "[B]uffers Options", mode = "n" },
 			{ "<leader>s", group = "[S]creen Options", mode = "n" },
 			{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
+			{ "<leader>x", group = "Diagnostics [X] Options", mode = "n" },
 		},
 	},
 }

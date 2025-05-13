@@ -23,8 +23,8 @@ config.font = wezterm.font({
 	weight = "Bold",
 	stretch = "Normal",
 })
-config.font_size = 16.0
-config.line_height = 1.3
+config.font_size = 15
+config.line_height = 1.4
 
 config.term = "xterm-256color"
 
@@ -37,22 +37,22 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.window_background_opacity = 0.90
+config.window_background_opacity = 0.92
 config.macos_window_background_blur = 40
 
--- Keybindings --
--- Leader key
-config.leader = { key = "w", mods = "ALT", timeout_milliseconds = 2000 }
-
---- Keybindings
+--- miscileneous keybindings
 config.keys = {
 	{
+		key = "Enter",
+		mods = "ALT",
+		action = wezterm.action.DisableDefaultAssignment,
+	},
+	{
 		key = "f",
-		mods = "LEADER",
+		mods = "ALT",
 		action = action.ToggleFullScreen,
 	},
 }
-
 config.mouse_bindings = {
 	{
 		event = {
@@ -71,36 +71,6 @@ config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = false
 config.use_fancy_tab_bar = false
 config.tab_and_split_indices_are_zero_based = false
---
--- tmux status
-wezterm.on("update-right-status", function(window, pane)
-	local SOLID_LEFT_ARROW = ""
-	local ARROW_FOREGROUND = { Foreground = { Color = "#c6a0f6" } }
-	local prefix = ""
 
-	if window:leader_is_active() then
-		prefix = " " .. utf8.char(0x1f30a) -- ocean wave
-		SOLID_LEFT_ARROW = utf8.char(0xe0b2)
-	end
-
-	if window:active_tab():tab_id() ~= 0 then
-		ARROW_FOREGROUND = { Foreground = { Color = "#1e2030" } }
-	end -- arrow color based on if tab is first pane
-
-	window:set_left_status(wezterm.format({
-		{ Background = { Color = "#b7bdf8" } },
-		{ Text = prefix },
-		ARROW_FOREGROUND,
-		{ Text = SOLID_LEFT_ARROW },
-	}))
-
-	local date = wezterm.run_child_process({ "date" })
-	date = wezterm.strftime("%Y/%m/%d %I:%M %p ")
-
-	window:set_right_status(wezterm.format({
-		{ Attribute = { Italic = false } },
-		{ Text = " " .. date },
-	}))
-end)
 -- and finally, return the configuration to wezterm
 return config

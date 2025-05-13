@@ -31,6 +31,7 @@ return {
 		local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 		mason_lspconfig.setup({
+			automatic_enable = true,
 			ensure_installed = servers_names,
 			automatic_installation = true,
 			handlers = {
