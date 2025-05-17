@@ -18,6 +18,7 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	end,
 })
 
+-- Show diagnostics error message in buffer
 vim.diagnostic.config({
 	virtual_text = true,
 	signs = true,
@@ -36,7 +37,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf, silent = true }
 
 		-- set keybinds
-		--
 		-- show definition, references
 		opts.desc = "Show LSP references"
 		keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)

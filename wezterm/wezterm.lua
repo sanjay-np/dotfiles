@@ -23,7 +23,7 @@ config.font = wezterm.font({
 	weight = "Bold",
 	stretch = "Normal",
 })
-config.font_size = 15
+config.font_size = 16
 config.line_height = 1.4
 
 config.term = "xterm-256color"

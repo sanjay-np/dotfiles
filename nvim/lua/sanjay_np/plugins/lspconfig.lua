@@ -14,4 +14,9 @@ return {
 			},
 		},
 	},
+	config = function()
+		vim.lsp.config("ts_ls", {
+			root_markers = { "tsconfig.json", ".git", "jsconfig.json" },
+		})
+	end,
 }
