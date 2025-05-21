@@ -1,20 +1,13 @@
 return {
     {
-        "folke/tokyonight.nvim",
+        'sainnhe/sonokai',
         lazy = false,
         priority = 1000,
-        opts = {
-        },
         config = function()
-            require("tokyonight").setup {
-                style = "moon",
-                transparent = false,
-                styles = {
-                    comments = { italic = true },
-                    keywords = { italic = false },
-                }
-            }
-            vim.cmd.colorscheme('tokyonight')
-        end,
+            vim.g.sonokai_transparent_background = 1
+            vim.g.sonokai_disable_italic_comment = 1
+            vim.g.sonokai_enable_italic = false
+            vim.cmd.colorscheme('sonokai')
+        end
     },
 }

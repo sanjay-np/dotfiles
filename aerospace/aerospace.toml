@@ -118,21 +118,19 @@ automatically-unhide-macos-hidden-apps = false
     alt-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-    alt-a = 'workspace A'
-    alt-b = 'workspace B'
-    alt-c = 'workspace C'
-    alt-d = 'workspace D'
-    alt-e = 'workspace E'
-    alt-t = 'workspace T'
 
+    alt-f1 = 'workspace 1'
+    alt-f2 = 'workspace 2'
+    alt-f3 = 'workspace 3'
+    alt-f4 = 'workspace 4'
+        
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-    alt-shift-a = 'move-node-to-workspace A'
-    alt-shift-b = 'move-node-to-workspace B'
-    alt-shift-c = 'move-node-to-workspace C'
-    alt-shift-d = 'move-node-to-workspace D'
-    alt-shift-e = 'move-node-to-workspace E'
-    alt-shift-t = 'move-node-to-workspace T'
-   
+
+    alt-shift-f1 = 'move-node-to-workspace 1'
+    alt-shift-f2 = 'move-node-to-workspace 2'
+    alt-shift-f3 = 'move-node-to-workspace 3'
+    alt-shift-f4 = 'move-node-to-workspace 4'
+      
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
