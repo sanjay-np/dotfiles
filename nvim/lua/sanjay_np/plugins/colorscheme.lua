@@ -12,8 +12,6 @@ return {
                 styles = {
                     comments = { italic = true },
                     keywords = { italic = false },
-                    functions = {},
-                    variables = {},
                 },
                 dim_inactive = true,
             })
