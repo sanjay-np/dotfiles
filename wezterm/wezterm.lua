@@ -19,12 +19,12 @@ config.color_scheme = "Tokyo Night (Gogh)"
 
 -- -- Font settings
 config.font = wezterm.font({
-	family = "GeistMono Nerd Font",
-	weight = "Bold",
-	stretch = "Normal",
+    family = "GeistMono Nerd Font",
+    weight = "DemiBold",
+    stretch = "Expanded",
 })
-config.font_size = 16
-config.line_height = 1.4
+config.font_size = 15.5
+config.line_height = 1.2
 
 config.term = "xterm-256color"
 
@@ -32,38 +32,38 @@ config.term = "xterm-256color"
 
 config.window_decorations = "RESIZE"
 config.window_padding = {
-	left = 0,
-	right = 0,
-	top = 0,
-	bottom = 0,
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
 }
-config.window_background_opacity = 0.92
+config.window_background_opacity = 0.85
 config.macos_window_background_blur = 40
 
 --- miscileneous keybindings
 config.keys = {
-	{
-		key = "Enter",
-		mods = "ALT",
-		action = wezterm.action.DisableDefaultAssignment,
-	},
-	{
-		key = "f",
-		mods = "ALT",
-		action = action.ToggleFullScreen,
-	},
+    {
+        key = "Enter",
+        mods = "ALT",
+        action = wezterm.action.DisableDefaultAssignment,
+    },
+    {
+        key = "f",
+        mods = "ALT",
+        action = action.ToggleFullScreen,
+    },
 }
 config.mouse_bindings = {
-	{
-		event = {
-			Up = {
-				streak = 1,
-				button = "Left",
-			},
-		},
-		mods = "CTRL",
-		action = wezterm.action.OpenLinkAtMouseCursor,
-	},
+    {
+        event = {
+            Up = {
+                streak = 1,
+                button = "Left",
+            },
+        },
+        mods = "CTRL",
+        action = wezterm.action.OpenLinkAtMouseCursor,
+    },
 }
 
 -- tab bar

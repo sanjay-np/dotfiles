@@ -8,7 +8,7 @@ return {
         -- configure lualine with modified theme
         lualine.setup({
             options = {
-                theme = "sonokai",
+                theme = "tokyonight",
                 icons_enabled = true,
                 globalstatus = true,
                 component_separators = { left = "|", right = "|" },

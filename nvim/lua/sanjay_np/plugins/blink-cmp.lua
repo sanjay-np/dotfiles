@@ -59,7 +59,7 @@ return { -- Autocompletion
         },
 
         sources = {
-            default = { "lsp", "buffer", "snippets", "path" },
+            default = { "lsp", "buffer", "path", "snippets" },
         },
         -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
         -- which automatically downloads a prebuilt binary when enabled.
