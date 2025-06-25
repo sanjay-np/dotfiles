@@ -1,5 +1,9 @@
-require("sanjay_np.core")
-require("sanjay_np.lazy")
+require("core.mason-path")
 
-require("sanjay_np.cmds.auto")
+require("core.lsp")
 
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
+
+require("core.lazy")
