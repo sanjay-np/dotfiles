@@ -44,11 +44,15 @@ return { -- Autocompletion
         },
 
         completion = {
+            accept = { auto_brackets = { enabled = true } },
             -- By default, you may press `<c-space>` to show the documentation.
             -- Optionally, set `auto_show = true` to show the documentation after a delay.
             documentation = {
                 auto_show = true,
-                auto_show_delay_ms = 500,
+                auto_show_delay_ms = 250,
+                update_delay_ms = 50,
+                treesitter_highlighting = true,
+                window = { border = "rounded" },
             },
             list = {
                 selection = {
@@ -56,10 +60,49 @@ return { -- Autocompletion
                     auto_insert = false,
                 },
             },
+            menu = {
+                border = "rounded",
+                draw = {
+                    columns = {
+                        {
+                            "kind_icon",
+                            gap = 1,
+                        },
+                        {
+                            "label",
+                            "label_description",
+                            gap = 1
+                        },
+                    },
+                    treesitter = { "lsp" },
+                },
+            },
         },
 
         sources = {
-            default = { "lsp", "buffer", "path", "snippets" },
+            default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+            providers = {
+                lazydev = {
+                    name = "LazyDev",
+                    module = "lazydev.integrations.blink",
+                    -- Make lazydev completions top priority (see `:h blink.cmp`)
+                    score_offset = 100,
+                },
+                lsp = {
+                    min_keyword_length = 2, -- Number of characters to trigger provider
+                    score_offset = 0,       -- Boost/penalize the score of the items
+                },
+                path = {
+                    min_keyword_length = 0,
+                },
+                snippets = {
+                    min_keyword_length = 2,
+                },
+                buffer = {
+                    min_keyword_length = 4,
+                    max_items = 5,
+                },
+            },
         },
         -- Blink.cmp includes an optional, recommended rust fuzzy matcher,
         -- which automatically downloads a prebuilt binary when enabled.
@@ -71,6 +114,9 @@ return { -- Autocompletion
         fuzzy = { implementation = "lua" },
 
         -- Shows a signature help window while you type arguments for a function
-        signature = { enabled = true },
+        signature = {
+            enabled = true,
+            window = { border = "rounded" },
+        },
     },
 }

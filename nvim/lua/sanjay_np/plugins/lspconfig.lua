@@ -18,5 +18,8 @@ return {
         vim.lsp.config("ts_ls", {
             root_markers = { "tsconfig.json", ".git", "jsconfig.json" },
         })
+        vim.lsp.config("intelephense", {
+            root_dir = require("lspconfig.util").root_pattern("composer.json", "package.json", ".git"),
+        })
     end,
 }
