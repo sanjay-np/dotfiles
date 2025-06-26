@@ -1,6 +1,6 @@
 return {
 	cmd = { "vscode-css-language-server", "--stdio" },
-	root_dir = { "package.json", ".git" },
+	root_markers = { ".git" },
 	filetypes = {
 		"css",
 		"html",
