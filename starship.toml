@@ -1,4 +1,4 @@
-format = '''$time- $username$hostname$directory $git_branch$character'''
+format = '''$username$hostname$directory $git_branch$character'''
 
 scan_timeout = 10
 add_newline = false
@@ -20,7 +20,7 @@ min_time_to_notify = 15
 [directory]#
 style = 'bold blue'
 disabled = false
-format = 'at [$path]($style)'
+format = '~ 📁[$path]($style)'
 
 
 
