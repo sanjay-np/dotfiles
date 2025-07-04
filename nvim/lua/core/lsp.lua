@@ -4,6 +4,7 @@ vim.lsp.enable({
 	"tailwind-ls",
 	"css-lsp",
 	"intelephense",
+	"emmet-ls",
 })
 
 --- diagnostics
