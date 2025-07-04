@@ -20,7 +20,7 @@ min_time_to_notify = 15
 [directory]#
 style = 'bold blue'
 disabled = false
-format = '~ 📁[$path]($style)'
+format = '~ 📁 [$path]($style)'
 
 
 

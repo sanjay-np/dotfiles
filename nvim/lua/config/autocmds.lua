@@ -22,9 +22,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		opts.desc = "Show documentation for what is under cursor"
 		keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
-		-- go to declaration
+		-- Goto definition
+		opts.desc = "Goto Definition"
+		keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+
+		-- go to definition in vertical split
 		opts.desc = "Goto Definition in Vertical Split"
-		keymap.set("n", "gd", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", opts)
+		keymap.set("n", "gvd", "<cmd>vsplit | lua vim.lsp.buf.definition()<cr>", opts)
 
 		-- see available code actions, in visual mode will apply to selection
 		opts.desc = "See available code actions"
