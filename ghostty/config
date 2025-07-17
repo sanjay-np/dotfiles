@@ -29,3 +29,18 @@ macos-titlebar-proxy-icon = hidden
 title = " "
 
 adjust-cell-height=25%
+
+# removing the alt + number because it's binded to tmux tilish
+keybind = alt+up=unbind
+keybind = alt+down=unbind
+keybind = alt+left=unbind
+keybind = alt+right=unbind
+keybind = alt+five=unbind
+keybind = alt+eight=unbind
+keybind = alt+three=unbind
+keybind = alt+nine=unbind
+keybind = alt+two=unbind
+keybind = alt+four=unbind
+keybind = alt+one=unbind
+keybind = alt+six=unbind
+keybind = alt+seven=unbind

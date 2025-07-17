@@ -1,26 +1,13 @@
 return {
 	{
-		"folke/tokyonight.nvim",
-		lazy = false,
-		priority = 1000,
-		opts = {},
+		"vague2k/vague.nvim",
 		config = function()
-			require("tokyonight").setup({
-				style = "storm",
+			require("vague").setup({
 				transparent = true,
-				terminal_colors = true,
-				styles = {
-					comments = { italic = false },
-					keywords = { italic = false },
-					sidebars = "dark",
-					floats = "dark",
-				},
-				dim_inactive = true,
-				on_colors = function(colors)
-					colors.border = "#565f89"
-				end,
+				italic = false,
+				bold = false,
 			})
-			vim.cmd.colorscheme("tokyonight")
+			vim.cmd.colorscheme("vague")
 		end,
 	},
 }
