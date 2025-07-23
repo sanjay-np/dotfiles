@@ -20,7 +20,7 @@ config.color_scheme = "Tokyo Night (Gogh)"
 -- -- Font settings
 config.font = wezterm.font({
 	family = "GeistMono Nerd Font",
-	weight = "DemiBold",
+	weight = "Medium",
 	stretch = "Expanded",
 })
 config.font_size = 15.5
