@@ -3,23 +3,16 @@ return {
 		"williamboman/mason.nvim",
 		lazy = false, -- Load immediately to ensure PATH is set
 		cmd = "Mason",
-		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
 		build = ":MasonUpdate",
 		opts = {
 			ensure_installed = {
-				-- LSP servers (matching your vim.lsp.enable() config)
 				"lua-language-server",
 				"typescript-language-server",
 				"css-lsp",
 				"tailwindcss-language-server",
-				"intelephense", -- PHP LSP
-
-				-- Formatters (for conform.nvim and general use)
+				"intelephense",
 				"stylua",
-				-- Note: gofmt comes with Go installation, not managed by Mason
 				"prettier",
-
-				-- Linters and diagnostics
 			},
 		},
 		config = function(_, opts)

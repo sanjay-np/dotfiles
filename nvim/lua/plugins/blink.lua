@@ -64,21 +64,18 @@ return { -- Autocompletion
 				border = "rounded",
 				draw = {
 					columns = {
-						{
-							"kind_icon",
-							gap = 1,
-						},
-						{
-							"label",
-							"label_description",
-							gap = 1,
-						},
+						{ "kind_icon", gap = 1 },
+						{ "label", "label_description", gap = 1 },
+						{ "source_name", gap = 1 },
 					},
 					treesitter = { "lsp" },
 				},
 			},
 		},
-
+		signature = {
+			enabled = true,
+			window = { border = "rounded" },
+		},
 		sources = {
 			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 			providers = {
@@ -99,9 +96,5 @@ return { -- Autocompletion
 		fuzzy = { implementation = "lua" },
 
 		-- Shows a signature help window while you type arguments for a function
-		signature = {
-			enabled = true,
-			window = { border = "rounded" },
-		},
 	},
 }
