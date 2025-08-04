@@ -122,21 +122,21 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
 
-    alt-q = 'workspace q'
-    alt-w = 'workspace w'
-    alt-e = 'workspace e'
-    alt-r = 'workspace r'
-    alt-t = 'workspace t'
-    alt-y = 'workspace y'
+    alt-1 = 'workspace 1'
+    alt-2 = 'workspace 2'
+    alt-3 = 'workspace 3'
+    alt-4 = 'workspace 4'
+    alt-5 = 'workspace 5'
+    alt-6 = 'workspace 6'
         
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 
-    alt-shift-q = 'move-node-to-workspace q'
-    alt-shift-w = 'move-node-to-workspace w'
-    alt-shift-e = 'move-node-to-workspace e'
-    alt-shift-r = 'move-node-to-workspace r'
-    alt-shift-t = 'move-node-to-workspace t'
-    alt-shift-y = 'move-node-to-workspace y'
+    alt-shift-1 = 'move-node-to-workspace 1'
+    alt-shift-2 = 'move-node-to-workspace 2'
+    alt-shift-3 = 'move-node-to-workspace 3'
+    alt-shift-4 = 'move-node-to-workspace 4'
+    alt-shift-5 = 'move-node-to-workspace 5'
+    alt-shift-6 = 'move-node-to-workspace 6'
      
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
