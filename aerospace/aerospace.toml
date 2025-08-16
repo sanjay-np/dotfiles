@@ -21,7 +21,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 30
+accordion-padding = 300
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -42,6 +42,15 @@ on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 # Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
 # Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
 automatically-unhide-macos-hidden-apps = false
+
+# Move some apps to floating layout
+[[on-window-detected]]
+if.app-name-regex-substring = 'finder'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'dicord'
+run = 'layout floating'
 
 # Move WezTerm and Firefox to workspaces
 [[on-window-detected]]
@@ -110,14 +119,13 @@ run = "move-node-to-workspace 2"
     alt-slash = 'layout tiles horizontal vertical'
     alt-comma = 'layout accordion horizontal vertical'
 
-    # Toggle windows in and out of the tiling layout/floating
-    # See: https://nikitabobko.github.io/AeroSpace/commands#layout
-    cmd-f = 'layout floating tiling'
-
     # Make windows fullscreen
     # See: https://nikitabobko.github.io/AeroSpace/commands#fullscreen
-    cmd-enter = 'fullscreen'
-    cmd-shift-f = 'fullscreen --no-outer-gaps'
+    alt-cmd-enter = 'fullscreen'
+
+    # Toggle windows in and out of the tiling layout/floating
+    # See: https://nikitabobko.github.io/AeroSpace/commands#layout
+    alt-cmd-f = 'layout floating tiling'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus left'
@@ -136,22 +144,18 @@ run = "move-node-to-workspace 2"
     alt-equal = 'resize smart +50'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
-
     alt-1 = 'workspace 1'
     alt-2 = 'workspace 2'
     alt-3 = 'workspace 3'
     alt-4 = 'workspace 4'
     alt-5 = 'workspace 5'
-    alt-6 = 'workspace 6'
         
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-
     alt-shift-1 = 'move-node-to-workspace 1'
     alt-shift-2 = 'move-node-to-workspace 2'
     alt-shift-3 = 'move-node-to-workspace 3'
     alt-shift-4 = 'move-node-to-workspace 4'
     alt-shift-5 = 'move-node-to-workspace 5'
-    alt-shift-6 = 'move-node-to-workspace 6'
      
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     alt-tab = 'workspace-back-and-forth'
