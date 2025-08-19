@@ -13,6 +13,9 @@ return {
 				"intelephense",
 				"stylua",
 				"prettier",
+				"eslint_d",
+				"jsonlint",
+				"emmet-ls",
 			},
 		},
 		config = function(_, opts)
