@@ -5,12 +5,13 @@ vim.lsp.enable({
 	"css-lsp",
 	"intelephense",
 	"emmet-ls",
+	"phpactor",
 })
 
 --- diagnostics
 vim.diagnostic.config({
-	virtual_lines = true,
-	virtual_text = false,
+	virtual_lines = false,
+	virtual_text = true,
 	underline = true,
 	update_in_insert = true,
 	severity_sort = true,

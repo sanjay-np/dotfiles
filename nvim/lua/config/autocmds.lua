@@ -34,9 +34,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- show documentation for what is under cursor
 		opts.desc = "Show documentation for what is under cursor"
-		keymap.set("n", "K", function()
-			require("pretty_hover").hover()
-		end, opts)
+		keymap.set("n", "K", vim.lsp.buf.hover, opts)
 
 		-- Goto definition
 		opts.desc = "Goto Definition"

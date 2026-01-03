@@ -1,126 +1,181 @@
 {
   "layer": "top",
-  "position": "top",
-  "mod": "dock",
   "exclusive": true,
   "passthrough": false,
-  "gtk-layer-shell": true,
-  "modules-left": ["custom/archicon", "hyprland/workspaces"],
-  "modules-center": ["clock#time", "clock#date"],
-  "modules-right": [
-    "temperature",
+  "position": "top",
+  "spacing": 1,
+  "fixed-center": true,
+  "ipc": true,
+  "margin-top": 3,
+  "margin-left": 3,
+  "margin-right": 3,
+  "output": "HDMI-A-1",
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/separator#line",
     "cpu",
     "memory",
-    "disk",
-    "pulseaudio",
-    "network",
-    "battery",
-    "custom/power_btn",
   ],
-  "custom/archicon": {
-    "format": "",
-    "on-click": "wofi --show drun",
-    "tooltip": false,
-  },
+
+  "modules-center": ["custom/cava", "clock", "custom/cava"],
+
+  "modules-right": [
+    "tray",
+    "network",
+    "custom/separator#line",
+    "pulseaudio#microphone",
+    "pulseaudio",
+    "custom/separator#line",
+    "battery",
+    "custom/notification",
+    "custom/separator#line",
+    "custom/power",
+  ],
 
   "hyprland/workspaces": {
-    "format": "{icon}",
-    "format-icons": {
-      "1": "",
-      "2": "",
-      "3": "",
-      "4": "",
-      "5": "",
-      "default": "",
-    },
-    "persistent-workspaces": { "*": 5 },
-    "disable-scroll": true,
+    "active-only": false,
     "all-outputs": true,
-    "show-special": true,
-  },
-
-  "clock#date": {
-    "interval": 10,
-    "format": "  {:%Y %b,%e}", // Icon: calendar-alt
-    "tooltip-format": "{:%e %B %Y}",
-  },
-
-  "clock#time": {
-    "interval": 1,
-    "format": "{:%I:%M %p}",
-    "tooltip": false,
-    "timezones": ["Asia/Kathmandu"],
-  },
-
-  "temperature": {
-    "critical-threshold": 80,
-    "interval": 5,
-    "format": "{icon}  {temperatureC}°C",
-    "format-icons": ["", "", "", "", ""],
-    "tooltip": true,
-  },
-
-  "cpu": {
-    "interval": 1,
-    "format": "  {usage}%",
-    "max-length": 10,
-  },
-
-  "memory": {
-    "interval": 1,
-    "format": "  {}%",
-    "max-length": 10,
-    "tooltip": true,
-    "tooltip-format": "Memory - {used:0.1f}GB used",
-  },
-
-  "disk": {
-    "interval": 500,
-    "format": "󰋊  {percentage_used}%",
-    "path": "/",
-    "tooltip": true,
-    "tooltip-format": "HDD - {used} used out of {total} on {path} ({percentage_used}%)",
-  },
-
-  "pulseaudio": {
-    "format": "{icon} {volume}%",
-    "format-muted": "",
-    "tooltip": false,
-    "scroll-step": 5,
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": ["", "", ""],
+    "format": "{icon}",
+    "show-special": false,
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1",
+    "persistent-workspaces": {
+      "*": 5,
     },
   },
 
-  "network": {
-    "interval": 5,
-    "format-wifi": " ", // Icon: wifi
-    "format-ethernet": " ", // Icon: ethernet
-    "format-disconnected": "⚠  Disconnected",
-    "tooltip-format": "{ifname}: {ipaddr}",
+  "custom/separator#line": {
+    "format": "|",
+    "interval": "once",
+    "tooltip": false,
   },
 
   "battery": {
     "interval": 5,
-    "states": {
-      "warning": 30,
-      "critical": 15,
-    },
-    "format": "  {icon}  {capacity}%",
-    "format-discharging": "{icon}  {capacity}%",
+    "format": "{icon} {capacity}%",
     "format-icons": ["", "", "", "", ""],
-    "tooltip": true,
+    "format-charging": "{icon} {capacity}% ",
+    "format-plugged": "{icon} {capacity}% ",
+    "tooltip-format": "{power}W - {timeTo}",
+    "states": {
+      "full": 100,
+      "great": 97,
+      "good": 85,
+      "ok": 50,
+      "warning": 30,
+      "low": 20,
+      "critical": 10,
+    },
   },
 
-  "custom/power_btn": {
-    "format": "",
-    "on-click": "sh -c '(sleep 0.5s; wlogout --protocol layer-shell)' & disown",
+  "clock": {
+    "interval": 1,
+    "format": " {:%I:%M %p  %d %b, %Y, %A}",
+    "format-alt": " {:%H:%M:%p  %Y, %d %B, %A}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#b4befe'><b>{}</b></span>",
+        "days": "<span color='#cdd6f4'><b>{}</b></span>",
+        "weeks": "<span color='#89b4fa'><b>W{}</b></span>",
+        "weekdays": "<span color='#f38ba8'><b>{}</b></span>",
+        "today": "<span color='#f38ba8'><b><u>{}</u></b></span>",
+      },
+    },
+  },
+
+  "cpu": {
+    "format": " {usage}%",
+    "interval": 1,
+    "min-length": 5,
+    "format-alt": "󰍛{usage:>2}% {icon0}{icon1}{icon2}{icon3}{icon4}",
+    "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+    "on-click-right": "gnome-system-monitor",
+  },
+
+  "memory": {
+    "interval": 1,
+    "format": "󰓅 {used:0.1f}G",
+    "format-alt": "{percentage}% 󰾆",
+    "tooltip": true,
+    "tooltip-format": "{used:0.1f}GB/{total:0.1f}G",
+    "on-click-right": "kitty --title btop sh -c 'btop'",
+  },
+
+  "network": {
+    "interface": "wlan0",
+    "format": "{ifname}",
+    "format-wifi": " ",
+    "format-ethernet": "{ipaddr}/{cidr} 󰊗",
+    "format-disconnected": " ",
+    "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%) ",
+    "tooltip-format-ethernet": "{ifname} ",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 50,
+  },
+
+  "tray": {
+    "icon-size": 20,
+    "spacing": 4,
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": "{icon} 󰂰 {volume}%",
+    "format-muted": "󰖁",
+    "on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", "󰕾", ""],
+      "ignored-sinks": ["Easy Effects Sink"],
+    },
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": "",
+    "on-click": "$HOME/.config/hypr/scripts/Volume.sh --toggle-mic",
+    "on-click-right": "pavucontrol -t 4",
+    "on-scroll-up": "$HOME/.config/hypr/scripts/Volume.sh --mic-inc",
+    "on-scroll-down": "$HOME/.config/hypr/scripts/Volume.sh --mic-dec",
+    "tooltip-format": "{source_desc} | {source_volume}%",
+    "scroll-step": 5,
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true,
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": " ",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": " ",
+    },
+  },
+  "custom/cava": {
+    "format": "{}",
+    "exec": "~/.config/waybar/scripts/cava.sh",
+  },
+  "custom/power": {
+    "format": "⏻ ",
     "tooltip": false,
   },
 }
