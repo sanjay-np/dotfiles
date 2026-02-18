@@ -6,8 +6,15 @@ return {
 	opts = {
 		bigfile = { enabled = true },
 		dashboard = { enabled = false },
-		explorer = { enabled = true },
-		indent = { enabled = false },
+		explorer = { enabled = false },
+		indent = {
+			priority = 1,
+			enabled = true, -- enable indent guides
+			char = "│",
+			only_scope = false, -- only show indent guides of the scope
+			only_current = false, -- only show indent guides in the current window
+			hl = "SnacksIndent", ---@type string|string[] hl groups for indent guides
+		},
 		input = { enabled = false },
 		notifier = {
 			enabled = false,
@@ -18,10 +25,14 @@ return {
 		scope = { enabled = true },
 		scroll = { enabled = true },
 		statuscolumn = { enabled = true },
+		terminal = { win = { style = "float" } },
 		words = { enabled = true },
 		styles = {
-			notification = {
-				-- wo = { wrap = true } -- Wrap notifications
+			terminal = {
+				border = "rounded",
+				width = 0.95,
+				height = 0.95,
+				zindex = 50,
 			},
 		},
 	},
@@ -58,25 +69,79 @@ return {
 		{
 			"<leader>fr",
 			function()
-				Snacks.picker.recent()
+				Snacks.picker.recent({
+					cwd = vim.fn.getcwd(),
+				})
 			end,
 			desc = "Recently Opened",
 		},
-		-- LSP
+		-- git
 		{
-			"gd",
+			"<leader>gb",
 			function()
-				Snacks.picker.lsp_definitions()
+				Snacks.picker.git_branches()
 			end,
-			desc = "Goto Definition",
+			desc = "Git Branches",
 		},
 		{
-			"gD",
+			"<leader>gl",
 			function()
-				Snacks.picker.lsp_declarations()
+				Snacks.picker.git_log()
 			end,
-			desc = "Goto Declaration",
+			desc = "Git Log",
 		},
+		{
+			"<leader>gL",
+			function()
+				Snacks.picker.git_log_line()
+			end,
+			desc = "Git Log Line",
+		},
+		{
+			"<leader>gs",
+			function()
+				Snacks.picker.git_status()
+			end,
+			desc = "Git Status",
+		},
+		{
+			"<leader>gS",
+			function()
+				Snacks.picker.git_stash()
+			end,
+			desc = "Git Stash",
+		},
+		{
+			"<leader>gd",
+			function()
+				Snacks.picker.git_diff()
+			end,
+			desc = "Git Diff (Hunks)",
+		},
+		{
+			"<leader>gf",
+			function()
+				Snacks.picker.git_log_file()
+			end,
+			desc = "Git Log File",
+		},
+		--diagnostics
+		{
+			"<leader>D",
+			function()
+				Snacks.picker.diagnostics_buffer()
+			end,
+			desc = "Buffer Diagnostics",
+		},
+		--terminal
+		{
+			"<Leader>tt",
+			function()
+				Snacks.terminal()
+			end,
+			desc = "Toggle Terminal",
+		},
+		--others
 		{
 			"<leader>gg",
 			function()

@@ -64,7 +64,7 @@ return { -- Autocompletion
 				border = "rounded",
 				draw = {
 					columns = {
-						{ "kind_icon", gap = 1 },
+						{ "kind_icon", "kind", gap = 1 },
 						{ "label", "label_description", gap = 1 },
 						{ "source_name", gap = 1 },
 					},
@@ -77,8 +77,16 @@ return { -- Autocompletion
 			window = { border = "rounded" },
 		},
 		sources = {
-			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
+			default = { "lazydev", "lsp", "path", "snippets", "buffer", "dbab" },
+			per_filetype = {
+				sql = { "snippets", "dbab", "buffer" },
+			},
 			providers = {
+				dbab = {
+					name = "dbab",
+					module = "blink_dbab",
+				},
+
 				lazydev = {
 					name = "LazyDev",
 					module = "lazydev.integrations.blink",

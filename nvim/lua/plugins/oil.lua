@@ -16,7 +16,7 @@ return {
 				cursorcolumn = false,
 			},
 			view_options = {
-				show_hidden = false, -- show hidden files by default
+				show_hidden = false, -- hide hidden files by default
 			},
 			keymaps = {
 				["<C-h>"] = false,
