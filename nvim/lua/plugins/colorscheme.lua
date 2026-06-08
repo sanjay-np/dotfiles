@@ -3,7 +3,6 @@ return {
 		"folke/tokyonight.nvim",
 		lazy = false,
 		priority = 1000,
-		opts = {},
 		config = function()
 			require("tokyonight").setup({
 				style = "night",
@@ -15,6 +14,7 @@ return {
 					sidebars = "transparent",
 					floats = "transparent",
 				},
+				on_highlights = function() end,
 				on_colors = function(colors)
 					colors.border = "#565f89"
 				end,

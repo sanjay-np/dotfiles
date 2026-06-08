@@ -1,9 +1,10 @@
 shell-integration = zsh
 
-font-family = "GeistMono Nerd Font"
+# font-family = AdwaitaMono Nerd Font
+font-size = 13
 font-style = Regular
-font-size = 16
 font-thicken = false
+# font-thicken-strength = 30
 
 mouse-hide-while-typing = true
 
@@ -12,15 +13,18 @@ cursor-style-blink = true
 
 shell-integration-features = no-cursor
 
-window-padding-x = 0
-window-padding-y = 0
+window-padding-x = 5
+window-padding-y = 5
 window-decoration = false
 
 confirm-close-surface = false
 clipboard-paste-protection = false
 unfocused-split-opacity = 1.0
 
-theme = tokyonight
+theme = TokyoNight
+
+selection-background = #364A82
+selection-foreground = #C0CAF5
 
 background-opacity = 0.90
 background-blur = 30
@@ -28,7 +32,8 @@ background-blur = 30
 macos-titlebar-proxy-icon = hidden
 title = " "
 
-adjust-cell-height=25%
+# adjust-cell-height= 5%
+# adjust-cell-width=-10%
 
 # removing the alt + number because it's binded to tmux tilish
 keybind = alt+one=unbind
@@ -36,5 +41,7 @@ keybind = alt+two=unbind
 keybind = alt+three=unbind
 keybind = alt+four=unbind
 keybind = alt+five=unbind
+keybind = alt+left=unbind
+keybind = alt+right=unbind
 
 macos-option-as-alt = true

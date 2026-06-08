@@ -23,7 +23,7 @@ return {
 				return nil
 			else
 				return {
-					timeout_ms = 500,
+					timeout_ms = 2500,
 					lsp_format = "fallback",
 				}
 			end
@@ -38,6 +38,13 @@ return {
 			jsonc = { "prettierd", "prettier", stop_after_first = true },
 			css = { "prettierd", "prettier", stop_after_first = true },
 			php = { "pint" },
+			bash = { "beautysh" },
+		},
+		formatters = {
+			prettier = {
+				-- This helps find the local prettier config
+				prepend_args = { "--config", vim.fn.getcwd() .. "/.prettierrc" },
+			},
 		},
 	},
 }

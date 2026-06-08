@@ -16,7 +16,7 @@ return {
 			c = { fg = colors.fg, bg = "none" },
 		}
 
-		local tokyonight = {
+		local line_colors = {
 			normal = theme_section,
 			insert = theme_section,
 			visual = theme_section,
@@ -27,7 +27,7 @@ return {
 
 		require("lualine").setup({
 			options = {
-				theme = tokyonight,
+				theme = line_colors,
 				icons_enabled = true,
 				globalstatus = true,
 				component_separators = { left = "|", right = "|" },

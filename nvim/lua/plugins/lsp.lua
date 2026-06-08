@@ -32,11 +32,21 @@ return {
 			},
 		})
 
+		vim.lsp.config("intelephense", {
+			settings = {
+				intelephense = {
+					diagnostics = {
+						argumentCount = "declared",
+					},
+				},
+			},
+		})
+
 		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
 					diagnostics = {
-						globals = { "vim", "mp", "Snacks" },
+						globals = { "vim", "mp", "Snacks", "require" },
 					},
 					telemetry = { enable = false },
 				},

@@ -44,3 +44,14 @@ opt.swapfile = false
 opt.foldenable = false
 
 vim.o.winborder = "rounded"
+
+vim.filetype.add({
+	filename = {
+		[".env"] = "sh",
+		["config"] = "sh",
+		["env"] = "sh",
+	},
+	pattern = {
+		[".env.*"] = "sh",
+	},
+})

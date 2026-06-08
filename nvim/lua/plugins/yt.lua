@@ -1,14 +1,23 @@
 return {
-	-- {
-	-- 	"sanjay-np/nvim-yt-control",
-	-- 	dir = "~/Projects/nvim-yt-control",
-	-- 	config = function()
-	-- 		require("yt-control").setup({
-	-- 			bridge = {
-	-- 				auto_start = true,
-	-- 				node_path = "/home/uncore/.config/nvm/versions/node/v24.13.0/bin/node",
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
+	{
+		"sanjay-np/nvim-yt-player",
+		config = function()
+			require("yt-player").setup({
+				statusline = {
+					enabled = true,
+					format = "{icon} {title} - {progress} [{position}/{duration}]",
+					icon_playing = "▶",
+					icon_paused = "⏸",
+					truncate_title = 25,
+					progress_width = 10,
+				},
+				search = {
+					limit = 40,
+				},
+				player = {
+					queue_display_limit = 20,
+				},
+			})
+		end,
+	},
 }

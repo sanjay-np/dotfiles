@@ -77,15 +77,15 @@ return { -- Autocompletion
 			window = { border = "rounded" },
 		},
 		sources = {
-			default = { "lazydev", "lsp", "path", "snippets", "buffer", "dbab" },
+			default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 			per_filetype = {
-				sql = { "snippets", "dbab", "buffer" },
+				sql = { "snippets", "buffer" },
 			},
 			providers = {
-				dbab = {
-					name = "dbab",
-					module = "blink_dbab",
-				},
+				-- dbab = {
+				-- 	name = "dbab",
+				-- 	module = "blink_dbab",
+				-- },
 
 				lazydev = {
 					name = "LazyDev",
