@@ -70,7 +70,7 @@ return {
 			"<leader>fr",
 			function()
 				Snacks.picker.recent({
-					cwd = vim.fn.getcwd(),
+					filter = { cwd = true },
 				})
 			end,
 			desc = "Recently Opened",

@@ -112,12 +112,19 @@ hl.config({
 		blur = {
 			enabled = true,
 			size = 5,
-			passes = 1,
+			passes = 2,
+			ignore_opacity = true,
+
+			noise = 0.08,
+			contrast = 1.5,
+			brightness = 0.8,
 			special = true,
 
 			xray = true,
 			new_optimizations = true,
 			popups = true,
+
+			vibrancy = 0.1696,
 		},
 	},
 	animations = {
@@ -290,11 +297,11 @@ for i = 1, 10 do
 end
 
 -- Persistent workspaces per monitor
-for i = 1, 5 do
-	hl.workspace_rule({ workspace = i, monitor = "eDP-1", persistent = true })
+for i = 1, 8 do
+	hl.workspace_rule({ workspace = i, monitor = "eDP-1", persistent = false })
 end
-for i = 6, 10 do
-	hl.workspace_rule({ workspace = i, monitor = "HDMI-A-1", persistent = true })
+for i = 9, 10 do
+	hl.workspace_rule({ workspace = i, monitor = "HDMI-A-1", persistent = false })
 end
 
 hl.bind(mainMod .. "+ Tab", hl.dsp.focus({ workspace = "previous" }))
