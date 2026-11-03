@@ -23,7 +23,7 @@ input {
         repeat-rate 60
 
         // Enable numlock on startup, omitting this setting disables it.
-        numlock
+        // numlock
     }
 
     // Next sections include libinput settings.
@@ -92,7 +92,7 @@ output "HDMI-A-1" {
 // https://niri-wm.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 4
+    gaps 8
 
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -119,7 +119,7 @@ layout {
     // preset-window-heights { }
 
     // You can change the default width of the new windows.
-    default-column-width { proportion 0.5; }
+    default-column-width { proportion 0.90; }
     // If you leave the brackets empty, the windows themselves will decide their initial width.
     // default-column-width {}
 
@@ -241,6 +241,10 @@ layout {
         // top 64
         // bottom 64
     }
+}
+
+switch-events {
+    lid-close { spawn "noctalia" "msg" "session" "lock-and-suspend"; }
 }
 
 blur {
@@ -376,7 +380,9 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
     Mod+Shift+Return hotkey-overlay-title="Run an Application: firefox" { spawn "firefox"; }
+    Mod+Alt+Return hotkey-overlay-title="Run an Application: chrome" { spawn "google-chrome-stable"; }
     Mod+E hotkey-overlay-title="Run an Application: nautilus" { spawn "nautilus"; }
+    Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
 
     // Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
 
